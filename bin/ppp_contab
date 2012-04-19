@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'pppcontab'
+
+opts = Slop.parse(:help => true) do
+  on :v, :verbose, 'Enable verbose mode'
+end
