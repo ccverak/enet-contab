@@ -1,6 +1,15 @@
 # PppContab
 
-TODO: Write a gem description
+Get accounting information from [Enet] pages. 
+
+This is a re-write of a report utility I wrote a while back based on
+hpricot, scruffy, etc.
+
+Currently returns the total time used by each number, and the number of
+connections performed. 
+
+Not a big deal, but proved useful for me and my Linux friends (there's a
+software in Windows which is almost the defacto standard for this).
 
 ## Installation
 
@@ -18,7 +27,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`ppp_contab -f <path to downloaded contab>`
 
 ## Contributing
 
@@ -27,3 +36,5 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+[Enet]: http://www.enet.cu
