@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'ppp_contab'
+
+@source = "pending"
+description = %q{
+Enet Accounting Helper
+Copyright (C) 2012 Adrian Perez <adrianperez.deb@gmail.com>
+}
+opts = Slop.parse(:help => true) do
+  banner %{Usage: ppp_contab [OPTIONS]
+#{description}
+  }
+
+  on :v, :verbose, 'Enable verbose mode'
+  on :f, :file=, 'Retrieve information from saved file', true, :required => true
+end
+
+extractor = PppContab::Extractor.new(opts[:file])
+
+puts description.yellow
+
+puts "Connection total by number".cyan
+puts "==========================".cyan
+
+puts "Number".ljust(10).cyan + "Time in hours".rjust(15).cyan
+puts "-".cyan * 25
+extractor.total_by_number.each do |number, duration|
+  puts "#{number}:".ljust(10).blue +  sprintf("%3.2f", duration).rjust(15)
+end
+
+puts "-" * 25
+puts "Total:".green + extractor.total.rjust(19)
